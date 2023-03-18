@@ -15,7 +15,7 @@ const SongDetails = () => {
   const { data: songData, isFetching: isFetchingSongDetails } =
     useGetSongDetailsQuery({ songid });
 
-  const { data, isFetching: isFetchingRelatedSongs, error } =
+  const { data : relatedTracks, isFetching: isFetchingRelatedSongs, error } =
     useGetSongRelatedQuery({ songid });
 
 
@@ -28,8 +28,11 @@ const SongDetails = () => {
     dispatch(playPause(true));
   };
 
-  if (isFetchingSongDetails || isFetchingRelatedSongs)
+  if (isFetchingSongDetails || isFetchingRelatedSongs){
+    console.log(relatedTracks)
+
     return <Loader title="Searching Your Groove" />;
+  }
 
   if (error) return <Error />;
 
@@ -49,7 +52,7 @@ const SongDetails = () => {
         </div>
       </div>
       <RelatedSongs
-        data={data.tracks}
+        data={Object.values(relatedTracks)}
         isPlaying={isPlaying}
         activeSong={activeSong}
         handlePauseClick={handlePauseClick}
