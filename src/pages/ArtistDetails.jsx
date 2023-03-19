@@ -19,13 +19,13 @@ const ArtistDetails = () => {
 
   return (
     <div className="flex flex-col">
-      {/* <DetailsHeader 
+      <DetailsHeader 
       artistId={artistId} 
-      artistData={artistData} 
-      /> */}
+      artistData={Object.values(artistData)} 
+      />
 
       <RelatedSongs
-        data={Object.values(artistData)[0].relationships?.albums?.data}
+        data={Object.values(artistData)}
         artistId={artistId}
         isPlaying={isPlaying}
         activeSong={activeSong}

@@ -51,14 +51,14 @@ const SongDetails = () => {
           )}
         </div>
       </div>
-      <RelatedSongs
+      {/* <RelatedSongs
         data={Object.values(relatedTracks)}
         isPlaying={isPlaying}
         activeSong={activeSong}
         handlePauseClick={handlePauseClick}
         handlePlayClick={handlePlayClick}
         // artistId={songData?.artists[0].adamid}
-      />
+      /> */}
     </div>
   );
 };
